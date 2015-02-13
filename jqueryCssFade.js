@@ -12,33 +12,38 @@
     var speed = jQuery.fx.speeds[speed] != undefined ? jQuery.fx.speeds[speed] : (isNaN(speed) ? jQuery.fx.speeds['_default'] : speed);    
     var t = this;
     var event = $.fadeCss();
-    if(event)
-        $(t).unbind(event);
     $(t)
         .data('fadeInCss', true)
         .css({ 
             'opacity': 0,   
             'visibility': 'visible'})
-    setTimeout(function(){
-        $(t).css({'transition': 'opacity '+speed/1000+'s linear', 'opacity': 1});      
-    }, 20);
+    if(event){
+        $(t).unbind(event);
+        setTimeout(function(){
+            $(t).css({'transition': 'opacity '+speed/1000+'s linear', 'opacity': 1});      
+        }, 20);        
+    }
+    else
+        $(t).stop().animate({'opacity': 1}, speed);   
   };
 
   jQuery.fn.fadeOutCss = function(speed){
     var speed = jQuery.fx.speeds[speed] != undefined ? jQuery.fx.speeds[speed] : (isNaN(speed) ? jQuery.fx.speeds['_default'] : speed);    
     var t = this;
     var event = $.fadeCss();
-    if(event)
+    $(t).data('fadeInCss', false)       
+    if(event){
         $(t).bind(event, function(){
-            $(t).css({'visibility': 'hidden'})})
-    else
-        setTimeout(function(){
-            $(t).css({'visibility': 'hidden'})})
-    $(t)
-        .data('fadeInCss', false)
-        .css({
+            $(t).css({'visibility': 'hidden'})})  
+        $(t).css({
             'transition': 'opacity '+speed/1000+'s linear',
-            'opacity': 0});
+            'opacity': 0});         
+    }
+    else{
+        $(t).stop().animate({opacity: 0}, speed, function(){
+            $(t).css({'visibility': 'hidden'})
+        })
+    }
   };
 
   jQuery.fn.fadeToggleCss = function(speed){
