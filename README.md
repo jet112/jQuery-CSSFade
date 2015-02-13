@@ -15,3 +15,7 @@ Differently from jQuery this plugin use "visibility" property instead "display".
   visibility: hidden;
 }
 ```
+
+### TODO
+* Add easing functions
+* Add callbacks
