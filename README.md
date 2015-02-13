@@ -1,5 +1,5 @@
-# jQuery CSSFade
-This is a simple jQuery plugin for use css fadeIn and fadeOut animation effects instead javascript animation.
+# jQuery CSS Fade
+This is a simple jQuery plugin for use css fade animation effects instead javascript animation.
 You can use fadeInCSS, fadeOutCSS and fadeToggleCSS effects instead fadeIn, fadeOut and fadeToggle jQuery effects. If your browser do not support css animation, this plugin will use jQuery default animation.
 <br/>
 ## Usage
