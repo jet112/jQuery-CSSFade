@@ -1,3 +1,6 @@
+/* 
+ * Simple jquery plugin
+ */
 (function($){
 
   jQuery.fadeCss = function(){
