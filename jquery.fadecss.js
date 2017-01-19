@@ -1,5 +1,5 @@
 /* 
- * Simple jquery plugin
+ * Simple jquery fade CSS plugin
  */
 (function($){
 
